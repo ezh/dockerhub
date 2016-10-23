@@ -15,19 +15,53 @@ services:
       - "3888:3888"
     network_mode: "bridge"
 
-  kafka:
-    container_name: kafka
-    hostname: kafka
+  kafka1:
+    container_name: kafka1
+    hostname: kafka1
     image: wurstmeister/kafka
     restart: always
     expose:
       - "9092"
-    ports:
-      - "9092:9092"
     environment:
       - HOST_IP=localhost
       - KAFKA_ADVERTISED_PORT=9092
       - KAFKA_BROKER_ID=1
+      - ZK=zk
+    network_mode: "bridge"
+    depends_on:
+      - zookeeper
+    links:
+      - zookeeper:zk
+
+  kafka2:
+    container_name: kafka2
+    hostname: kafka2
+    image: wurstmeister/kafka
+    restart: always
+    expose:
+      - "9092"
+    environment:
+      - HOST_IP=localhost
+      - KAFKA_ADVERTISED_PORT=9092
+      - KAFKA_BROKER_ID=2
+      - ZK=zk
+    network_mode: "bridge"
+    depends_on:
+      - zookeeper
+    links:
+      - zookeeper:zk
+
+  kafka3:
+    container_name: kafka3
+    hostname: kafka3
+    image: wurstmeister/kafka
+    restart: always
+    expose:
+      - "9092"
+    environment:
+      - HOST_IP=localhost
+      - KAFKA_ADVERTISED_PORT=9092
+      - KAFKA_BROKER_ID=3
       - ZK=zk
     network_mode: "bridge"
     depends_on:
