@@ -1,0 +1,37 @@
+version: '2'
+services:
+  zookeeper:
+    container_name: zookeeper
+    hostname: zookeeper
+    image: wurstmeister/zookeeper
+    restart: always
+    expose:
+      - "2181"
+      - "2888"
+      - "3888"
+    ports:
+      - "2181:2181"
+      - "2888:2888"
+      - "3888:3888"
+    network_mode: "bridge"
+
+  kafka:
+    container_name: kafka
+    hostname: kafka
+    image: wurstmeister/kafka
+    restart: always
+    expose:
+      - "9092"
+    ports:
+      - "9092:9092"
+    environment:
+      - HOST_IP=localhost
+      - KAFKA_ADVERTISED_PORT=9092
+      - KAFKA_BROKER_ID=1
+      - ZK=zk
+    network_mode: "bridge"
+    depends_on:
+      - zookeeper
+    links:
+      - zookeeper:zk
+
