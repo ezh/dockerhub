@@ -1,0 +1,14 @@
+version: "2"
+services:
+  registry:
+    container_name: registry
+    hostname: registry
+    image: registry:2.5.1
+    restart: always
+    expose:
+      - "5000"
+    ports:
+      - "5000:5000"
+    network_mode: "bridge"
+    volumes:
+      - /home/goldon/volumes/registry:/var/lib/registry

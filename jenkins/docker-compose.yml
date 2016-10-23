@@ -1,0 +1,16 @@
+version: "2"
+services:
+  jenkinsci:
+    container_name: jenkinsci
+    hostname: jenkins
+    image: jenkinsci/jenkins:latest
+    restart: always
+    expose:
+      - "8080"
+      - "50000"
+    ports:
+      - "8080:8080"
+      - "50000:50000"
+    network_mode: "bridge"
+    volumes:
+      - /home/goldon/volumes/jenkins:/var/jenkins_home
