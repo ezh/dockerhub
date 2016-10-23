@@ -1,0 +1,16 @@
+version: '2'
+services:
+  hbase-standalone:
+    container_name: hbase-standalone
+    hostname: hbase-standalone
+    image: hbase-standalone:1.2.3
+    restart: always
+    expose:
+      - "2181"
+      - "16010"
+    ports:
+      - "2181:2181"
+      - "16010:16010"
+    volumes:
+      - /home/goldon/docker/volumes/hbase:/hbase/data/hbase
+    
