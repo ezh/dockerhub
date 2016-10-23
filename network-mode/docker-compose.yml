@@ -3,53 +3,53 @@ services:
   hbase:
     container_name: hbase
     hostname: smartsight
-    image: test:latest
+    image: dockercompose_busybox:latest
     restart: always
     networks:
       - smartsight
   kafka:
     container_name: kafka
-    image: test:latest
+    image: dockercompose_busybox:latest
     restart: always
     network_mode: "service:hbase"
   logstash:
     container_name: logstash
-    image: test:latest
+    image: dockercompose_busybox:latest
     restart: always
     network_mode: "service:hbase"
   collector:
     container_name: collector
-    image: test:latest
+    image: dockercompose_busybox:latest
     restart: always
     network_mode: "service:hbase"
   kernel:
     container_name: kernel
-    image: test:latest
+    image: dockercompose_busybox:latest
     restart: always
     network_mode: "service:hbase"
   portal:
     container_name: portal
-    image: test:latest
+    image: dockercompose_busybox:latest
     restart: always
     network_mode: "service:hbase"
   policy:
     container_name: policy
-    image: test:latest
+    image: dockercompose_busybox:latest
     restart: always
     network_mode: "service:hbase"
   nfvtrace:
     container_name: nfvtrace
-    image: test:latest
+    image: dockercompose_busybox:latest
     restart: always
     network_mode: "service:hbase"
   dbmonitor:
     container_name: dbmonitor
-    image: test:latest
+    image: dockercompose_busybox:latest
     restart: always
     network_mode: "service:hbase"
   cep:
     container_name: cep
-    image: test:latest
+    image: dockercompose_busybox:latest
     restart: always
     network_mode: "service:hbase"
 
