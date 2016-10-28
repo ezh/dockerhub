@@ -1,0 +1,20 @@
+version: "2"
+services:
+  hbase-kafka:
+    build: .
+    container_name: hbase-kafka
+    hostname: hbase-kafka
+    image: hbase-kafka:latest
+    restart: always
+    expose:
+      - "2181"
+      - "16010"
+      - "9092"
+    ports:
+      - "2181:2181"
+      - "16010:16010"
+      - "9092:9092"
+    network_mode: "bridge"
+    volumes:
+      - /home/goldon/volumes/hbase:/hbase/data/hbase
+      - /home/goldon/volumes/kafka:/tmp/kafka-log
