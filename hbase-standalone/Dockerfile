@@ -1,6 +1,6 @@
 FROM openjdk:1.8
 
-MAINTAINER "qianguodong" <goldon.qian@gmail.com>
+MAINTAINER "goldonship" <goldon.qian@gmail.com>
 
 ARG HBASE_VERSION=1.2.3
 

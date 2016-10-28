@@ -1,6 +1,6 @@
 FROM  alpine-bash:latest
 
-MAINTAINER "qianguodong" <goldon.qian@gmail.com>
+MAINTAINER "goldonship" <goldon.qian@gmail.com>
 
 ENV JAVA_HOME /usr/local/java-1.8-openjdk
 

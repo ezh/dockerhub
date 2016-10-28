@@ -1,6 +1,6 @@
 FROM busybox:latest
 
-MAINTAINER "qianguodong" <goldon.qian@gmail.com>
+MAINTAINER "goldonship" <goldon.qian@gmail.com>
 
 WORKDIR /
 
