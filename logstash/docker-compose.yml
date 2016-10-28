@@ -1,0 +1,8 @@
+version: "2"
+services:
+  logstash-own:
+    build: .
+    container_name: logstash-own
+    hostname: logstash
+    image: logstash-own:2.3.4
+    restart: always

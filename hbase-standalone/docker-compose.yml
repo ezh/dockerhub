@@ -1,6 +1,7 @@
 version: '2'
 services:
   hbase-standalone:
+    build: .
     container_name: hbase-standalone
     hostname: hbase-standalone
     image: hbase-standalone:1.2.3

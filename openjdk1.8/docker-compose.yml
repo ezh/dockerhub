@@ -1,0 +1,5 @@
+version: "2"
+services:
+  openjdk:
+    build: .
+    image: openjdk:1.8
