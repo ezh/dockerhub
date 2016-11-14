@@ -1,0 +1,15 @@
+version: '2'
+services:
+  etcd:
+    build: .
+    container_name: etcd
+    hostname: etcd
+    image: etcd:v3.0.15
+    restart: always
+    expose:
+      - "4001"
+      - "7001"
+    ports:
+      - "4001:4001"
+      - "7001:7001"
+    network_mode: "bridge"

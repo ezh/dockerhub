@@ -1,0 +1,15 @@
+version: '2'
+services:
+  api-server:
+    build: .
+    container_name: api-server
+    hostname: api-server
+    image: kube-apiserver:v1.4.6
+    restart: always
+    expose:
+      - "8080"
+    ports:
+      - "8080:8080"
+    network_mode: "bridge"
+    links:
+      - etcd:kube-etcd
