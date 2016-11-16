@@ -7,4 +7,22 @@ services:
     restart: always
     network_mode: "host"
     volumes:
-      - /var/etcd/data:/var/etcd/data
+      - /var/etcd/data:/var/etcd/data:rw
+
+  apiserver:
+    build: ./apiserver
+    container_name: kube-apiserver
+    image: goldonship/kube-apiserver:v3.0.15
+    pid: host
+    privileged: true
+    restart: always
+    network_mode: "host"
+    volumes:
+      - /sys:/sys:ro
+      - /dev:/dev
+      - /var/lib/docker/:/var/lib/docker:ro
+      - /var/lib/kubelet/:/var/lib/kubelet:rw
+      - /var/run:/var/run:rw
+    depends_on:
+      - etcd
+
