@@ -1,0 +1,10 @@
+version: "2"
+services:
+  etcd:
+    build: ./etcd
+    container_name: kube-etcd
+    image: goldonship/kube-etcd:v3.0.15
+    restart: always
+    network_mode: "host"
+    volumes:
+      - /var/etcd/data:/var/etcd/data
