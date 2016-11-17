@@ -1,6 +1,6 @@
 FROM  bashell/alpine-bash:latest
 
-ADD kube-apiserver /usr/local/bin
+ADD kube-controller-manager /usr/local/bin
 
 ADD run.sh /
 

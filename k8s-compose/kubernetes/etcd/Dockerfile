@@ -1,4 +1,4 @@
-FROM  alpine-bash:latest
+FROM bashell/alpine-bash:latest
 
 ADD etcd /usr/local/bin
 

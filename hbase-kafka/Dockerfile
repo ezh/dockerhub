@@ -1,4 +1,4 @@
-FROM  alpine-bash:latest
+FROM  bashell/alpine-bash:latest
 
 MAINTAINER "goldonship" <goldon.qian@gmail.com>
 
