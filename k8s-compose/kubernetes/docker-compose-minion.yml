@@ -1,21 +1,9 @@
 version: "2"
 services:
-  etcd:
-    build: ./etcd
-    container_name: kube-etcd
-    image: goldon/kube-etcd:v3.0.15
-    restart: always
-    network_mode: "host"
-    volumes:
-      - /var/etcd/data:/var/etcd/data:rw
-    environment:
-      - MASTER_IP=${MASTER_IP}
-
-
-  apiserver:
-    build: ./apiserver
-    container_name: kube-apiserver
-    image: goldon/kube-apiserver:v1.4.6
+  kubelet:
+    build: ./kubelet
+    container_name: kubelet
+    image: goldon/kubelet:v1.4.6
     pid: host
     privileged: true
     restart: always
@@ -26,46 +14,5 @@ services:
       - /var/lib/docker/:/var/lib/docker:ro
       - /var/lib/kubelet/:/var/lib/kubelet:rw
       - /var/run:/var/run:rw
-    depends_on:
-      - etcd
-    environment:
-      - MASTER_IP=${MASTER_IP}
-
-  controller-manager:
-    build: ./controller-manager
-    container_name: kube-controller-manager
-    image: goldon/kube-controller-manager:v1.4.6
-    pid: host
-    privileged: true
-    restart: always
-    network_mode: "host"
-    depends_on:
-      - apiserver
-    environment:
-      - MASTER_IP=${MASTER_IP}
-
-  scheduler:
-    build: ./scheduler
-    container_name: kube-scheduler
-    image: goldon/kube-scheduler:v1.4.6
-    pid: host
-    privileged: true
-    restart: always
-    network_mode: "host"
-    depends_on:
-      - controller-manager
-    environment:
-      - MASTER_IP=${MASTER_IP}
-
-  proxy:
-    build: ./proxy
-    container_name: kube-proxy
-    image: goldon/kube-proxy:v1.4.6
-    pid: host
-    privileged: true
-    restart: always
-    network_mode: "host"
-    depends_on:
-      - scheduler
     environment:
       - MASTER_IP=${MASTER_IP}

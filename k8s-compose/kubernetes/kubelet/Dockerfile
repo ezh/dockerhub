@@ -1,4 +1,4 @@
-FROM  10.62.100.88:9999/ubuntu:14.04
+FROM ubuntu:latest
 
 ADD kubelet /usr/local/bin
 

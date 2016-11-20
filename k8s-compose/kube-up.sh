@@ -19,8 +19,13 @@ if [ $? != 0 ];then
 fi
 
 cd "$this_dir/kubernetes"
-#docker-compose -f docker-compose-master.yml up -d --build
+. "$this_dir/env.sh"
+sudo docker-compose -f docker-compose-master.yml up -d --build
+sudo docker-compose -f docker-compose-minion.yml up -d --build 
 
+cd "$this_dir/kubernetes/proxy"
+sh run.sh &
+sleep 15s
 
-
-
+# ##############
+kubectl get nodes
