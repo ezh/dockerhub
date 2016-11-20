@@ -19,7 +19,7 @@ if [ $? != 0 ];then
 fi
 
 cd "$this_dir/kubernetes"
-. "$this_dir/env.sh"
+. "$this_dir/bin/env.sh"
 sudo docker-compose -f docker-compose-master.yml up -d --build
 sudo docker-compose -f docker-compose-minion.yml up -d --build 
 
