@@ -1,0 +1,6 @@
+etcd/etcd
+apiserver/kube-apiserver
+controller-manager/kube-controller-manager
+scheduler/kube-scheduler
+kubelet/kubelet
+proxy/kube-proxy
